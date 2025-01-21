@@ -1,8 +1,10 @@
 package com.ju.library_ddd.catalog.domain;
 
 
+import lombok.Getter;
 import org.springframework.util.Assert;
 
+@Getter
 public class Book {
     private BookId id;
     private String title;
