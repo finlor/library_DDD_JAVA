@@ -16,9 +16,9 @@ public class RentBookUseCase {
         this.loanRepository = loanRepository;
     }
 
-    public void execute(@NotNull CopyId copyId, @NotNull UserId userId) {
+    public void execute(@NotNull CopyId copyId, @NotNull UserId userId, LoanRepository loanRepository) {
 
         //TODO: verify the copy is not already rented
-        loanRepository.save(new Loan(copyId, userId));
+        loanRepository.save(new Loan(copyId, userId, loanRepository));
     }
 }

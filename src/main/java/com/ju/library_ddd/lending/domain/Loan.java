@@ -1,6 +1,7 @@
 package com.ju.library_ddd.lending.domain;
 
 import jakarta.persistence.*;
+import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,7 +25,10 @@ public class Loan {
 
     public Loan() {}
 
-    public Loan(CopyId copyId, UserId userId) {
+    public Loan(CopyId copyId, UserId userId, LoanRepository loanRepository) {
+        Assert.notNull(copyId, "copyId must not be null");
+        Assert.notNull(userId, "userId must not be null");
+        Assert.isTrue(loanRepository.isAvailable(copyId), "loanRepository is available" );
         this.loanId = new LoanId();
         this.copyId = copyId;
         this.userId = userId;
