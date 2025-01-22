@@ -31,4 +31,8 @@ public class Loan {
         this.createdAt = LocalDateTime.now();
         this.expectedReturned = LocalDate.now().plusDays(15);
     }
+
+    public void returned() {
+        this.returnedAt = LocalDateTime.now();
+    }
 }
