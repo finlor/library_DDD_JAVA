@@ -5,7 +5,7 @@ import com.ju.library_ddd.catalog.domain.BookRepository;
 import com.ju.library_ddd.catalog.domain.Isbn;
 import org.springframework.stereotype.Service;
 
-@Service
+@Usecase
 public class AddBookToCatalogUseCase {
 
     private final BookRepository bookRepository;
