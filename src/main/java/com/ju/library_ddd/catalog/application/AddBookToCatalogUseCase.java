@@ -3,7 +3,6 @@ package com.ju.library_ddd.catalog.application;
 import com.ju.library_ddd.catalog.domain.Book;
 import com.ju.library_ddd.catalog.domain.BookRepository;
 import com.ju.library_ddd.catalog.domain.Isbn;
-import org.springframework.stereotype.Service;
 
 @Usecase
 public class AddBookToCatalogUseCase {
