@@ -1,13 +1,14 @@
 package com.ju.library_ddd.lending.domain;
 
 import jakarta.persistence.*;
+import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-public class Loan {
+public class Loan extends AbstractAggregateRoot<Loan> {
 
     @EmbeddedId
     private LoanId loanId;
@@ -34,9 +35,11 @@ public class Loan {
         this.userId = userId;
         this.createdAt = LocalDateTime.now();
         this.expectedReturned = LocalDate.now().plusDays(15);
+        this.registerEvent(new LoanCreated(this.copyId));
     }
 
     public void returned() {
         this.returnedAt = LocalDateTime.now();
+        this.registerEvent(new LoanClosed(this.copyId));
     }
 }

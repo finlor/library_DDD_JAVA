@@ -1,6 +1,5 @@
 package com.ju.library_ddd.lending.application;
 
-import com.ju.library_ddd.catalog.application.Usecase;
 import com.ju.library_ddd.lending.domain.CopyId;
 import com.ju.library_ddd.lending.domain.Loan;
 import com.ju.library_ddd.lending.domain.LoanRepository;
